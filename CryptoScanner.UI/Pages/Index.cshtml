@@ -4,7 +4,18 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@foreach(ViewModel currency in Currencies){
+    <div>
+        <h1>
+            currency.Name
+        </h1>
+        <h2>
+            All time high: currency.AthDate
+        </h2>
+        <h2>All time low: currency.AtlDate</h2>
+        <h2>Current markket cap: currency.MarketCap</h2>
+        <h2>Current price in SEK: currency.CurrentPrice</h2>
+        <p>Last updated: currency.LastUpdated</p>
+
+    </div>
+}

@@ -5,8 +5,8 @@ namespace CryptoScanner.UI.Pages
 {
     public class IndexModel : PageModel
     {
-        public List<CryptoCurrencyViewModel> Currencies { get; set; }
-        public CryptoCurrencyViewModel? cryptoCurrencyViewModel { get; set; }
+        public List<ViewModel> Currencies { get; set; }
+        public ViewModel? cryptoCurrencyViewModel { get; set; }
         public string ErrorMessage { get; set; }
 
         [BindProperty]
@@ -27,7 +27,7 @@ namespace CryptoScanner.UI.Pages
             try
             {
                 // Sök på coinet med hjälp av namn för att få upp värdet
-                CryptoCurrenxyViewModel = await new ApiCaller().GetValue(CryptoCurrencyName);
+                ViewModel = await new ApiCaller().GetValue(CryptoCurrencyName);
             }
             catch (Exception ex)
             {
