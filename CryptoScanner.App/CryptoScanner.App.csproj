@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoScanner.Data\CryptoScanner.Data.csproj" />
+  </ItemGroup>
+
 </Project>
