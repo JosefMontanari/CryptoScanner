@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoScanner.UI", "CryptoScanner.UI\CryptoScanner.UI.csproj", "{013A12C2-D5EC-445E-8884-4AFFD6743224}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoScanner.App", "CryptoScanner.App\CryptoScanner.App.csproj", "{3E8060F3-70BF-4F0B-A465-DC855145EBFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{43C11892-114D-4584-89FE-456E56DA4C7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{013A12C2-D5EC-445E-8884-4AFFD6743224}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{013A12C2-D5EC-445E-8884-4AFFD6743224}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{013A12C2-D5EC-445E-8884-4AFFD6743224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E8060F3-70BF-4F0B-A465-DC855145EBFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8060F3-70BF-4F0B-A465-DC855145EBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8060F3-70BF-4F0B-A465-DC855145EBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8060F3-70BF-4F0B-A465-DC855145EBFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C11892-114D-4584-89FE-456E56DA4C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C11892-114D-4584-89FE-456E56DA4C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C11892-114D-4584-89FE-456E56DA4C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C11892-114D-4584-89FE-456E56DA4C7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
