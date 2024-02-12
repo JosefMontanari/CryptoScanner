@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.UI", "CryptoScanner.UI\CryptoScanner.UI.csproj", "{013A12C2-D5EC-445E-8884-4AFFD6743224}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.App", "CryptoScanner.App\CryptoScanner.App.csproj", "{88D85D00-E455-4250-8625-B5557B3891A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.App", "CryptoScanner.App\CryptoScanner.App.csproj", "{025ADAEE-C5CC-410B-8C8B-650B308A179E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{64926EDD-92E6-45E9-9296-BD751B8D4EB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{5343E703-DFCC-434C-BB46-D79DF0E6B176}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{013A12C2-D5EC-445E-8884-4AFFD6743224}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{013A12C2-D5EC-445E-8884-4AFFD6743224}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{013A12C2-D5EC-445E-8884-4AFFD6743224}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88D85D00-E455-4250-8625-B5557B3891A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88D85D00-E455-4250-8625-B5557B3891A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88D85D00-E455-4250-8625-B5557B3891A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88D85D00-E455-4250-8625-B5557B3891A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{64926EDD-92E6-45E9-9296-BD751B8D4EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64926EDD-92E6-45E9-9296-BD751B8D4EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64926EDD-92E6-45E9-9296-BD751B8D4EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64926EDD-92E6-45E9-9296-BD751B8D4EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025ADAEE-C5CC-410B-8C8B-650B308A179E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025ADAEE-C5CC-410B-8C8B-650B308A179E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025ADAEE-C5CC-410B-8C8B-650B308A179E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025ADAEE-C5CC-410B-8C8B-650B308A179E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5343E703-DFCC-434C-BB46-D79DF0E6B176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5343E703-DFCC-434C-BB46-D79DF0E6B176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5343E703-DFCC-434C-BB46-D79DF0E6B176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5343E703-DFCC-434C-BB46-D79DF0E6B176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
