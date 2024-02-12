@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CryptoScanner.Data.Models
+﻿namespace CryptoScanner.Data.Models
 {
-    internal class ViewModel
+    public class ViewModel
     {
+        public string Name { get; set; }
+
+        public int MyProperty { get; set; }
+
+        public int CurrentPrice { get; set; }
+
+        public long MarketCap { get; set; }
+
+        public DateTime AthDate { get; set; }
+
+        public DateTime AtlDate { get; set; }
+
+        public DateTime LastUpdated { get; set; }
     }
 }

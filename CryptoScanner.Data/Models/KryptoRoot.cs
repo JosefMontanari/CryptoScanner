@@ -1,4 +1,6 @@
-﻿namespace CryptoScanner.Data.Models
+﻿using Newtonsoft.Json;
+
+namespace CryptoScanner.Data.Models
 {
     public class KryptoRoot
     {
