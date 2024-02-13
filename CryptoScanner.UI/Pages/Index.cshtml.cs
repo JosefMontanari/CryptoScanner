@@ -1,3 +1,4 @@
+using CryptoScanner.App.Api;
 using CryptoScanner.Data.Models;
 using CryptoScanner.Data.Models.DbModels;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,22 @@ namespace CryptoScanner.UI.Pages
         public string? CryptoCurrencyName { get; set; }
 
 
-        //public async Task<ActionResult> OnGet()
-        //{
-        //    Currencies = await new Apicaller().GetCurrency();
-        //}
+        public async Task<ActionResult> OnGet()
+        {
+            try
+            {
+
+                Currencies = await new Apicaller().GetCurrency();
+                return Page();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Page();
+
+        }
 
         public async Task<ActionResult> OnPost()
         {
@@ -29,8 +42,10 @@ namespace CryptoScanner.UI.Pages
             }
             try
             {
-                // Sök på coinet med hjälp av namn för att få upp värdet
-                //CryptoCurrencyRootModel = await new Apicaller().GetBitcoin(CryptoCurrencyName);
+                //Sök på coinet med hjälp av namn för att få upp värdet
+                CryptoCurrencyRootModel = await new Apicaller().GetBitcoin(CryptoCurrencyName);
+                return Page();
+
             }
             catch (Exception ex)
             {

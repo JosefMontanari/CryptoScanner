@@ -1,11 +1,12 @@
 ﻿@page
+@using CryptoScanner.Data.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 } 
 
 
-@* @foreach(ViewModel currency in Currencies){
+@foreach(ViewModel currency in Currencies){
     <div>
         <h1>
             currency.Name
@@ -19,7 +20,7 @@
         <p>Last updated: currency.LastUpdated</p>
 
     </div>
-} *@
+}
 
 <form method="post">
 <input type="text" asp-for="CryptoCurrencyName" placeholder="Crypto name"/>
