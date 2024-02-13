@@ -1,4 +1,5 @@
 using CryptoScanner.Data.Models;
+using CryptoScanner.Data.Models.DbModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,6 +13,7 @@ namespace CryptoScanner.UI.Pages
 
         [BindProperty]
         public string? CryptoCurrencyName { get; set; }
+
 
         //public async Task<ActionResult> OnGet()
         //{
@@ -36,6 +38,17 @@ namespace CryptoScanner.UI.Pages
             }
 
             return Page();
+        }
+
+        public void AddToDb()
+        {
+            KryptoDbModel kryptoDbModel = new KryptoDbModel()
+            {
+                Name = CryptoCurrencyRootModel.Name,
+                CurrentPrice = CryptoCurrencyRootModel.CurrentPrice,
+            };
+
+
         }
     }
 }
