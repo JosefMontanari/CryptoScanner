@@ -8,7 +8,7 @@ namespace CryptoScanner.UI.Pages
 {
     public class IndexModel : PageModel
     {
-        public List<ViewModel> Currencies { get; set; }
+        public List<ViewModel>? Currencies { get; set; }
         public ViewModel? CryptoCurrencyRootModel { get; set; }
         public string ErrorMessage { get; set; }
 
@@ -43,8 +43,7 @@ namespace CryptoScanner.UI.Pages
             try
             {
                 //Sök på coinet med hjälp av namn för att få upp värdet
-                CryptoCurrencyRootModel = await new Apicaller().GetBitcoin(CryptoCurrencyName);
-                return Page();
+                CryptoCurrencyRootModel = await new Apicaller().GetBitcoin($"coins/markets?vs_currency=sek&ids={CryptoCurrencyName}&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en");
 
             }
             catch (Exception ex)

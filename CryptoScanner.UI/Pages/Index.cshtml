@@ -5,7 +5,9 @@
     ViewData["Title"] = "Home page";
 } 
 
-
+@if(Model.Currencies != null)
+{
+    
 @foreach (ViewModel currency in @Model.Currencies)
 {
         <div>
@@ -23,6 +25,8 @@
         </div>
 }
 
+}
+
 <form method="post">
 <input type="text" asp-for="CryptoCurrencyName" placeholder="Crypto name"/>
 <input type="submit" value="Search"/>
@@ -32,7 +36,6 @@
 {
         <h1>@Model.CryptoCurrencyRootModel.Name</h1>
         <h1>@Model.CryptoCurrencyRootModel.CurrentPrice</h1>
-}
-
 @* Knapp för att lägga upp till databasen *@
 <input type="button" method="AddToDb()"/>
+}
