@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.App", "Crypto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{5343E703-DFCC-434C-BB46-D79DF0E6B176}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoScanner.App", "CryptoScanner.App\CryptoScanner.App.csproj", "{3E8060F3-70BF-4F0B-A465-DC855145EBFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{43C11892-114D-4584-89FE-456E56DA4C7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

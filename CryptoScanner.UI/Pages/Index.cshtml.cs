@@ -5,16 +5,36 @@ namespace CryptoScanner.UI.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        public List<ViewModel> Currencies { get; set; }
+        public ViewModel? cryptoCurrencyViewModel { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        [BindProperty]
+        public string? CryptoCurrencyName { get; set; }
+
+        public async Task<ActionResult> OnGet()
         {
-            _logger = logger;
+            Currencies = await new ApiCaller().GetCurrency();
         }
 
-        public void OnGet()
+        public async Task<ActionResult> OnPost()
         {
+            if (CryptoCurrencyName == null)
+            {
+                ErrorMessage = "Try searching for something else!";
+                return Page();
+            }
+            try
+            {
+                // Sök på coinet med hjälp av namn för att få upp värdet
+                ViewModel = await new ApiCaller().GetValue(CryptoCurrencyName);
+            }
+            catch (Exception ex)
+            {
 
+            }
+
+            return Page();
         }
     }
 }
