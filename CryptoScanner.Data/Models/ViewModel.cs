@@ -2,9 +2,9 @@
 {
     public class ViewModel
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public int MyProperty { get; set; }
+
 
         public int CurrentPrice { get; set; }
 
