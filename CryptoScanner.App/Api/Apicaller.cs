@@ -22,7 +22,9 @@ namespace CryptoScanner.App.Api
                 BaseAddress = new Uri("https://api.coingecko.com/api/v3/")
             };
         }
- 
+
+
+
         public async Task<List<ViewModel>> GetCurrency()
         {
             HttpResponseMessage response = await _client.GetAsync("coins/list");
@@ -31,13 +33,13 @@ namespace CryptoScanner.App.Api
             {
                 string kryptoJson = await response.Content.ReadAsStringAsync();
 
-                List<KryptoRoot>? kryptoRootList = JsonConvert.DeserializeObject<List<KryptoRoot>>(kryptoJson);
+                List<KryptoListRoot>? kryptoRootList = JsonConvert.DeserializeObject<List<KryptoListRoot>>(kryptoJson);
 
                 if (kryptoRootList != null && kryptoRootList.Any())
                 {
                     List<ViewModel> viewModelList = new List<ViewModel>();
 
-                    foreach (var kryptoRoot in kryptoRootList)
+                    foreach (var kryptoRoot in kryptoRootList.Take(10))
                     {
                         ViewModel viewModel = new CryptoManager().ProjectApiModelToViewModel(kryptoRoot);
                         viewModelList.Add(viewModel);
@@ -51,36 +53,40 @@ namespace CryptoScanner.App.Api
             throw new HttpRequestException("Failed to retrieve data from API.");
         }
 
+
+
         public async Task<ViewModel> GetBitcoin(string kryptoName)
+        {
+            HttpClient client = new();
+
+            client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
+
+            HttpResponseMessage response = await client.GetAsync(kryptoName.ToLower());
+
+
+
+            if (response.IsSuccessStatusCode)
             {
-                HttpClient client = new();
+                string kryptoJson = await response.Content.ReadAsStringAsync();
 
-                client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
-
-                HttpResponseMessage response = await client.GetAsync(kryptoName.ToLower());
+                KryptoRoot? kryptoRoot = JsonConvert.DeserializeObject<KryptoRoot>(kryptoJson);
 
 
-                if (response.IsSuccessStatusCode)
+
+                if (kryptoRoot != null)
+
                 {
-                    string kryptoJson = await response.Content.ReadAsStringAsync();
-
-                    KryptoRoot? kryptoRoot = JsonConvert.DeserializeObject<KryptoRoot>(kryptoJson);
-
-
-
-                    if (kryptoRoot != null)
-
-                    {
-                    ViewModel bitcoinViewModel = new CryptoManager().ProjectApiModelToViewModel(kryptoRoot);
+                    ViewModel bitcoinViewModel = new CoinManager().ProjectApiModelToViewModel(kryptoRoot);
 
                     return bitcoinViewModel;
                 }
-                    throw new JsonException();
-                }
-
-                throw new HttpRequestException();
+                throw new JsonException();
             }
+
+            throw new HttpRequestException();
         }
+
+    }
     }
 
 
