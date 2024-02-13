@@ -11,36 +11,78 @@ namespace CryptoScanner.App.Api
 {
     public class Apicaller
     {
-        
-        public async Task <ViewModel> GetBitcoin(string kryptoName)
+
+        private readonly HttpClient _client;
+
+        public Apicaller()
         {
-            HttpClient client = new();
+            _client = new HttpClient
+            {
+                BaseAddress = new Uri("https://api.coingecko.com/api/v3/")
+            };
+        }
+ 
+        public async Task<List<ViewModel>> GetCurrency()
+        {
+            HttpResponseMessage response = await _client.GetAsync("coins/list");
 
-            client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
-
-            HttpResponseMessage response = await client.GetAsync(kryptoName.ToLower());
-
-
-
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 string kryptoJson = await response.Content.ReadAsStringAsync();
 
-                Root? kryptoRoot = JsonConvert.DeserializeObject<Root>(kryptoJson);   
+                List<KryptoRoot>? kryptoRootList = JsonConvert.DeserializeObject<List<KryptoRoot>>(kryptoJson);
 
-
-
-                if(kryptoRoot != null) 
-                
+                if (kryptoRootList != null && kryptoRootList.Any())
                 {
-                    //ViewModel bitcoinViewModel = new KryptoManager().ProjectApiModelToViewModel(kryptoRoot);
+                    List<ViewModel> viewModelList = new List<ViewModel>();
 
-                    //return bitcoinViewModel;
+                    foreach (var kryptoRoot in kryptoRootList)
+                    {
+                        //ViewModel viewModel = new KryptoManager().ProjectApiModelToViewModel(kryptoRoot);
+                        //viewModelList.Add(viewModel);
+                    }
+
+                    return viewModelList;
                 }
-                throw new JsonException();
+                throw new JsonException("No data received from API or deserialization failed.");
             }
 
-            throw new HttpRequestException();
+            throw new HttpRequestException("Failed to retrieve data from API.");
+        }
+
+        public async Task<ViewModel> GetBitcoin(string kryptoName)
+            {
+                HttpClient client = new();
+
+                client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
+
+                HttpResponseMessage response = await client.GetAsync(kryptoName.ToLower());
+
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string kryptoJson = await response.Content.ReadAsStringAsync();
+
+                    KryptoRoot? kryptoRoot = JsonConvert.DeserializeObject<KryptoRoot>(kryptoJson);
+
+
+
+                    if (kryptoRoot != null)
+
+                    {
+                        //ViewModel bitcoinViewModel = new KryptoManager().ProjectApiModelToViewModel(kryptoRoot);
+
+                        //return bitcoinViewModel;
+                    }
+                    throw new JsonException();
+                }
+
+                throw new HttpRequestException();
+            }
         }
     }
-}
+
+
+    
+
