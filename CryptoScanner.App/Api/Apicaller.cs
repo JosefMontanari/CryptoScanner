@@ -54,16 +54,11 @@ namespace CryptoScanner.App.Api
         }
 
 
-
         public async Task<ViewModel> GetBitcoin(string kryptoName)
         {
-            HttpClient client = new();
 
-            client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
-
-            HttpResponseMessage response = await client.GetAsync(kryptoName.ToLower());
-
-
+            HttpResponseMessage response = await _client.GetAsync(kryptoName);
+      
 
             if (response.IsSuccessStatusCode)
             {
@@ -85,6 +80,38 @@ namespace CryptoScanner.App.Api
 
             throw new HttpRequestException();
         }
+
+
+        //public async Task<ViewModel> GetBitcoin(string kryptoName)
+        //{
+        //    HttpClient client = new();
+
+        //    client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
+
+        //    HttpResponseMessage response = await client.GetAsync(kryptoName.ToLower());
+
+
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        string kryptoJson = await response.Content.ReadAsStringAsync();
+
+        //        KryptoRoot? kryptoRoot = JsonConvert.DeserializeObject<KryptoRoot>(kryptoJson);
+
+
+
+        //        if (kryptoRoot != null)
+
+        //        {
+        //            ViewModel bitcoinViewModel = new CoinManager().ProjectApiModelToViewModel(kryptoRoot);
+
+        //            return bitcoinViewModel;
+        //        }
+        //        throw new JsonException();
+        //    }
+
+        //    throw new HttpRequestException();
+        //}
 
     }
     }
