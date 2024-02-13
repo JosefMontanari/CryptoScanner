@@ -1,4 +1,5 @@
-﻿using CryptoScanner.Data.Models;
+﻿using CryptoScanner.App.Managers;
+using CryptoScanner.Data.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -38,8 +39,8 @@ namespace CryptoScanner.App.Api
 
                     foreach (var kryptoRoot in kryptoRootList)
                     {
-                        //ViewModel viewModel = new KryptoManager().ProjectApiModelToViewModel(kryptoRoot);
-                        //viewModelList.Add(viewModel);
+                        ViewModel viewModel = new CryptoManager().ProjectApiModelToViewModel(kryptoRoot);
+                        viewModelList.Add(viewModel);
                     }
 
                     return viewModelList;
@@ -59,7 +60,6 @@ namespace CryptoScanner.App.Api
                 HttpResponseMessage response = await client.GetAsync(kryptoName.ToLower());
 
 
-
                 if (response.IsSuccessStatusCode)
                 {
                     string kryptoJson = await response.Content.ReadAsStringAsync();
@@ -71,10 +71,10 @@ namespace CryptoScanner.App.Api
                     if (kryptoRoot != null)
 
                     {
-                        //ViewModel bitcoinViewModel = new KryptoManager().ProjectApiModelToViewModel(kryptoRoot);
+                    ViewModel bitcoinViewModel = new CryptoManager().ProjectApiModelToViewModel(kryptoRoot);
 
-                        //return bitcoinViewModel;
-                    }
+                    return bitcoinViewModel;
+                }
                     throw new JsonException();
                 }
 
