@@ -1,35 +1,37 @@
 ﻿@page
+@using CryptoScanner.Data.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 } 
 
 
-@* @foreach(ViewModel currency in Currencies){
-    <div>
-        <h1>
-            currency.Name
-        </h1>
-        <h2>
-            All time high: currency.AthDate
-        </h2>
-        <h2>All time low: currency.AtlDate</h2>
-        <h2>Current markket cap: currency.MarketCap</h2>
-        <h2>Current price in SEK: currency.CurrentPrice</h2>
-        <p>Last updated: currency.LastUpdated</p>
+@foreach (ViewModel currency in @Model.Currencies)
+{
+        <div>
+            <h1>
+            @currency.Name
+            </h1>
+            <h2>
+                All time high: @currency.AthDate
+            </h2>
+            <h2>All time low: @currency.AtlDate</h2>
+            <h2>Current markket cap: @currency.MarketCap</h2>
+            <h2>Current price in SEK: @currency.CurrentPrice</h2>
+            <p>Last updated: @currency.LastUpdated</p>
 
-    </div>
-} *@
+        </div>
+}
 
 <form method="post">
 <input type="text" asp-for="CryptoCurrencyName" placeholder="Crypto name"/>
 <input type="submit" value="Search"/>
 </form>
 
-@if(Model.CryptoCurrencyRootModel != null)
+@if (Model.CryptoCurrencyRootModel != null)
 {
-    <h1>@Model.CryptoCurrencyRootModel.Name</h1>
-    <h1>@Model.CryptoCurrencyRootModel.CurrentPrice</h1>
+        <h1>@Model.CryptoCurrencyRootModel.Name</h1>
+        <h1>@Model.CryptoCurrencyRootModel.CurrentPrice</h1>
 }
 
 @* Knapp för att lägga upp till databasen *@
